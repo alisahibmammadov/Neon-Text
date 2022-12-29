@@ -1,0 +1,99 @@
+body{
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #000;
+}
+
+.neon{
+  position: relative;
+  overflow: hidden;
+  filter: brightness(200%);
+  .text{
+    background: #000;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    -webkit-user-select: none;
+  }
+  .text::before{
+    content: attr(data-text);
+    position: absolute;
+    color: #fff;
+    filter: blur(.02rem);
+    mix-blend-mode: difference;
+  }
+  .gradient{
+    position: absolute;
+    background: linear-gradient(45deg, red,gold,lightgreen,gold,red);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    mix-blend-mode: multiply;
+  }
+  .spotlight{
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, #fff,transparent 25%) center / 25% 25%,
+    radial-gradient(circle, #fff, #000 25%) center / 12.5% 12.5%;
+    animation: light 5s linear infinite;
+    mix-blend-mode: color-dodge;
+  }
+
+}
+@keyframes light{
+  to{
+    transform: translate(50%,50%);
+  }
+}
+
+.neon-year{
+  width: 250px;
+  height: 60px;
+  font-size: 3rem;
+  letter-spacing: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  padding-left: 25px;
+  .border-color{
+    position: absolute;
+    background: linear-gradient(50deg, red,gold, green, blue ,pink,purple);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    mix-blend-mode: multiply;
+  }
+  span{
+    position: absolute;
+    transition: 1s ease-in-out;
+    transition-delay: 1s;
+    top: 0;
+  }
+  p{
+    position: absolute;
+    top: 100%;
+    transition: 1s ease-in-out;
+    transition-delay: 1s;
+  }
+}
+button{
+  border: transparent;
+  background: #ccc;
+  cursor: pointer;
+  border-radius: 10px;
+}
